@@ -4,10 +4,7 @@ import torch.nn.functional as F
 import math
 import lightning.pytorch as pl
 from torch.optim.lr_scheduler import OneCycleLR
-from torch.optim.lr_scheduler import CosineAnnealingLR, LinearLR
 
-torch.backends.cuda.matmul.allow_tf32 = True
-torch.backends.cudnn.allow_tf32 = True
 
 class MLLM(pl.LightningModule):
     def __init__(self, vocab, dim, pad_idx, max_pos, QKV_dim, heads, num_layers,
