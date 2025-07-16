@@ -2,7 +2,7 @@ from collections import Counter
 
 words = Counter()
 #req = ['a','i']
-with open("E:/Projects/Seq2Seq/data/corpus/Final_Train_Text.txt", 'r') as f:
+with open("data\corpus\Final_Train_Text.txt", 'r') as f:
     for i in f:
         for word in i.split():
             current = tuple(word.lower()) + ('</w>',)
@@ -49,7 +49,7 @@ for _ in range(20000):
     words = new_words
     merges.append((first, second))
 
-with open("E:/Projects/Seq2Seq/data/corpus/MergeRules.txt",'w') as f:
+with open("data\corpus\MergeRules.txt",'w') as f:
     for i,j in merges:
         f.write(f"{i} {j}\n")
 
@@ -69,6 +69,6 @@ for tok in sorted(token_set):
     if tok not in ordered_tokens:
         ordered_tokens.append(tok)
 
-with open("E:/Projects/Seq2Seq/data/corpus/Vocab.txt", "w", encoding="utf-8") as f:
+with open("data\corpus\Vocab.txt", "w", encoding="utf-8") as f:
     for tok in ordered_tokens:
         f.write(tok + "\n")

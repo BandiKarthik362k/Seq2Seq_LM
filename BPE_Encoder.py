@@ -4,12 +4,12 @@ import torch
 from torch.utils.data import random_split, DataLoader, TensorDataset
 
 
-with open("E:/Projects/Seq2Seq/data/corpus/MergeRules.txt", "r") as f:
+with open("data\corpus\MergeRules.txt", "r") as f:
     merge_rules = {tuple(line.split()): idx for idx, line in enumerate(f)}
 
 
 vocab = []
-with open("E:/Projects/Seq2Seq/data/corpus/Vocab.txt", "r", encoding="utf-8") as f:
+with open("data\corpus\Vocab.txt", "r", encoding="utf-8") as f:
     for tok in f:
         vocab.append(tok.strip())
 
@@ -76,7 +76,7 @@ def detokenise(ids):
 
 
 train_ids_stream = []
-with open("E:/Projects/Seq2Seq/data/corpus/Final_Train_Text.txt", "r") as f:
+with open("data\corpus\Final_Train_Text.txt", "r") as f:
     for line in f:
         train_ids_stream.append(token2id["<bos>"])
         for word in line.split():
@@ -85,12 +85,12 @@ with open("E:/Projects/Seq2Seq/data/corpus/Final_Train_Text.txt", "r") as f:
         train_ids_stream.append(token2id["<eos>"])
 
 train_ids_tensor = torch.tensor(train_ids_stream, dtype=torch.long)
-torch.save(train_ids_tensor, "E:/Projects/Seq2Seq/data/train_texttokens.pt")
+torch.save(train_ids_tensor, "train_texttokens.pt")
 # print('train tokens saved')
 
 
 val_ids_stream = []
-with open("E:/Projects/Seq2Seq/data/corpus/Final_Val_Text.txt", "r") as f:
+with open("data\corpus\Final_Val_Text.txt", "r") as f:
     for line in f:
         val_ids_stream.append(token2id["<bos>"])
         for word in line.split():
@@ -99,7 +99,7 @@ with open("E:/Projects/Seq2Seq/data/corpus/Final_Val_Text.txt", "r") as f:
         val_ids_stream.append(token2id["<eos>"])
 
 val_ids_tensor = torch.tensor(val_ids_stream, dtype=torch.long)
-torch.save(val_ids_tensor, "E:/Projects/Seq2Seq/data/val_texttokens.pt")
+torch.save(val_ids_tensor, "val_texttokens.pt")
 # print('val tokens saved')
 
 # # Train tokens
