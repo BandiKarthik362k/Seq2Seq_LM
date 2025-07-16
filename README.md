@@ -1,4 +1,4 @@
-# MLLM
+# Seq2Seq_LM
 
 GPT-style Decoder only Transformer completely build from scratch. A sequence to sequence model that can take an input and generate the next probable best word sentences. Works in the same mechanism of auto-regressive text generation for the given input prompt.
 
