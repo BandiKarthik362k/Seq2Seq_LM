@@ -5,7 +5,6 @@ import math
 import lightning.pytorch as pl
 from torch.optim.lr_scheduler import OneCycleLR
 
-
 class MLLM(pl.LightningModule):
     def __init__(self, vocab, dim, pad_idx, max_pos, QKV_dim, heads, num_layers,
         dropout_percentage, learning_rate, wd, ls, pct_start,act, ffn_internal):
